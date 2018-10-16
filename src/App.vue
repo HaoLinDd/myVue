@@ -19,7 +19,6 @@
 import AppHeader from './components/Appheader'
 import AppSidebar from './components/AppSidebar'
 import HeroList from './components/HeroList'
-
 export default {
   name: 'app',
   components: {
