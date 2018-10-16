@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import Foo from './components/Foo.vue'
+import Bar from './components/Bar.vue'
+
+
 
 Vue.use(VueRouter)
 // 样式导入
@@ -15,17 +19,11 @@ const router = new VueRouter({
     // 动态路径参数 以冒号开头
     { 
       path: '/foo',
-      name: 'foo',
-      component: {//1.定义路由组件
-        template: `<h1>hello 我是Foo组件</h1>`
-      } 
+      component: Foo
     },  
     { 
-      path: '/bar', 
-      name: 'bar',
-      component: {
-        template: `<h1>hello 我是Bar组件</h1>`
-      } 
+      path: '/bar',
+      component: Bar
     }
   ]
 })
