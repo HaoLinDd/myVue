@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Foo from './components/Foo.vue'
 import Bar from './components/Bar.vue'
 import HeroList from './components/HeroList.vue'
-
+import HeroAdd from './components/HeroAdd.vue'
 
 
 Vue.use(VueRouter)
@@ -19,7 +19,7 @@ const router = new VueRouter({
   routes: [
     // 动态路径参数 以冒号开头
     {
-      path: '/',
+      path: '/heros',
       component: HeroList
     },
     { 
@@ -29,6 +29,10 @@ const router = new VueRouter({
     { 
       path: '/bar',
       component: Bar
+    },
+    {
+      path: '/heros/add',
+      component:HeroAdd
     }
   ]
 })
