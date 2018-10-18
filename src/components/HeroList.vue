@@ -214,8 +214,24 @@
  
 </template>
 <script>
+// 引包
+import axios from 'axios'
+
+axios.get('http://localhost:3000/users')
+  .then(function (response) {
+    // handle success
+    console.log('请求成功了！')
+    console.log('响应数据', response)
+    console.log(response.data)
+  })
+
+
 export default {
-  
+  data () {
+    return {
+
+    }
+  }
 }
 </script>
 <style>
