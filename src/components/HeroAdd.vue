@@ -1,24 +1,14 @@
 <template>
   <div>
     <h2 class="sub-header">Add Hero</h2>
-    <form>
+    <form @submit="handleAdd">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <label for="name">英雄名称</label>
+        <input type="text" class="form-control" id="name" v-model="hero.name">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
+        <label for="gender">英雄性别</label>
+        <input type="text" class="form-control" id="gender" v-model="hero.gender">
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
@@ -26,8 +16,31 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+// 导出一个组建的格式对象 使用export default
+// 组件的选项必须写在这个对象中
 export default {
-  
+  data() {
+    return {
+      hero: {
+        name: '',
+        gender: ''
+      }
+    }
+  },
+  methods: {
+    handleAdd (e) {
+      e.preventDefault()
+
+      axios.post('http://localhost:3000/heros', this.hero)
+      .then(res => {
+        if (res.status === 201){
+          this.$router.push('/heros')
+        }
+      })
+    }
+  }
 }
 </script>
 

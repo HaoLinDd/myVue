@@ -27,7 +27,6 @@
       </table>
     </div>
   </div>
- 
 </template>
 <script>
 // 引包
@@ -41,8 +40,7 @@ export default {
   },
   created () {
     // created会自动执行 this是当前组件
-    axios
-    .get('http://localhost:3000/users')
+    axios.get('http://localhost:3000/heros')
     .then(response => { //这使用箭头函数为了使用this
       this.heros = response.data  // 更新数据
     })

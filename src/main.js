@@ -32,7 +32,7 @@ const router = new VueRouter({
     },
     {
       path: '/heros/add',
-      component:HeroAdd
+      component: HeroAdd
     }
   ]
 })
