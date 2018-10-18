@@ -1,9 +1,15 @@
 <template>
   <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-      <li><a href="#/heros">英雄管理 <span class="sr-only">(current)</span></a></li>
-      <li><a href="#/foo">Go to Foo</a></li>
-      <li><a href="#/bar">Go to Bar</a></li>
+      <router-link to="/heros" tag='li' active-class="active">
+        <a>英雄管理</a>
+      </router-link>
+      <router-link to="/foo" tag='li' active-class="active">
+        <a>Go to Foo</a>
+      </router-link>
+      <router-link to="/bar" tag='li' active-class="active">
+        <a>Go to Bar</a>
+      </router-link>
     </ul>
   </div>
 </template>
