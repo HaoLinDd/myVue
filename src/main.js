@@ -5,7 +5,7 @@ import Foo from './components/Foo.vue'
 import Bar from './components/Bar.vue'
 import HeroList from './components/HeroList.vue'
 import HeroAdd from './components/HeroAdd.vue'
-
+import HeroEdit from './components/HeroEdit.vue'
 
 Vue.use(VueRouter)
 // 样式导入
@@ -33,6 +33,11 @@ const router = new VueRouter({
     {
       path: '/heros/add',
       component: HeroAdd
+    },
+    {
+      // :id表示动态的
+      path: '/heros/edit/:heroId',
+      component: HeroEdit
     }
   ]
 })

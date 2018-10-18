@@ -18,9 +18,9 @@
             <td>{{ item.name }}</td>
             <td>{{ item.gender}}</td>
             <td>
-              <a href="edit.html">edit</a>
+              <a v-bind:href="'#/heros/edit/'+ item.id">edit</a>
               &nbsp;&nbsp;
-              <a href="javascript:window.confirm('Are you sure?')">delete</a>
+              <a href="#" @click.prevent="handelDelete(item.id)">delete</a>
             </td>
           </tr>
         </tbody>
@@ -44,6 +44,19 @@ export default {
     .then(response => { //这使用箭头函数为了使用this
       this.heros = response.data  // 更新数据
     })
+  },
+  methods: {
+    handelDelete(id){
+      if(window.confirm('are you sure?') === true) {
+        axios.delete(`http://localhost:3000/heros/${id}`)
+        .then(response => { //这使用箭头函数为了使用this
+          axios.get('http://localhost:3000/heros')
+          .then(response => { //这使用箭头函数为了使用this
+            this.heros = response.data  // 更新数据
+          })
+        })
+      }
+    }
   }
 }
 </script>
